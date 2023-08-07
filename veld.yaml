@@ -19,9 +19,6 @@ services:
       service: veld
     volumes:
       - ./veld_dummy_data_2_xml/data.xml:/veld/input/data.xml
-    depends_on:
-      veld_db:
-        condition: service_healthy
     environment:
       user: "admin"
       password: "admin"
@@ -29,6 +26,9 @@ services:
       database_name: "veld_dummy_database"
     networks:
       - basex_network 
+    depends_on:
+      veld_db:
+        condition: service_healthy
     
 networks:
   basex_network:
