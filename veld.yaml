@@ -11,17 +11,25 @@ services:
     volumes:
       - ./veld_dummy_data_3_basex/db_data:/veld/storage
     networks:
-      - basex_loader_network 
+      - basex_network 
 
   veld:
     extends:
       file: ./veld_dummy_executable_5_load_to_basex/veld.yaml
       service: veld
     volumes:
-      - ./data.xml:/veld/input/data.xml
+      - ./veld_dummy_data_2_xml/data.xml:/veld/input/data.xml
     depends_on:
       veld_db:
         condition: service_healthy
+    environment:
+      user: "admin"
+      password: "admin"
+      host: "veld_db:8984"
+      database_name: "veld_dummy_database"
+    networks:
+      - basex_network 
     
 networks:
-  basex_loader_network:
+  basex_network:
+
