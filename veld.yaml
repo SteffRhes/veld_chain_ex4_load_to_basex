@@ -6,19 +6,19 @@ x-veld:
 services:
   veld_db:
     extends:
-      file: ./veld_dummy_executable_4_basex/veld.yaml
+      file: ./veld_executable_ex4_basex/veld.yaml
       service: veld
     volumes:
-      - ./veld_dummy_data_3_basex/db_data:/veld/storage
+      - ./veld_data_ex3_basex/db_data:/veld/storage
     networks:
       - basex_network 
 
   veld:
     extends:
-      file: ./veld_dummy_executable_5_load_to_basex/veld.yaml
+      file: ./veld_executable_ex5_load_to_basex/veld.yaml
       service: veld
     volumes:
-      - ./veld_dummy_data_2_xml/data.xml:/veld/input/data.xml
+      - ./veld_data_ex2_xml/data.xml:/veld/input/data.xml
     environment:
       user: "admin"
       password: "admin"
