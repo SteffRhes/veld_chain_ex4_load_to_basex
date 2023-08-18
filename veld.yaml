@@ -14,7 +14,7 @@ services:
       file: ./veld_executable_ex4_basex/veld.yaml
       service: veld
     # A database needs a storage. We can also persist it into a data veld, to tie code and data
-    # together and version them arbitrarily
+    # together and to version them
     volumes:
       - ./veld_data_ex3_basex/db_data/:/veld/storage/
     # A network is necessary for other services to connect to this database
